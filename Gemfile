@@ -16,7 +16,7 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'sassc-rails'
 gem 'bootstrap'
-
+gem 'carrierwave', '~> 1.0'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 gem "byebug"
