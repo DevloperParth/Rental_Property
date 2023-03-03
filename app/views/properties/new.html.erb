@@ -1,6 +1,6 @@
 <h1>New property</h1>
 
-<%= render "form", property: @property %>
+
 
 <br>
 
@@ -22,13 +22,13 @@
   </div>
 
    <div>
-    <%= form.label :location %><br>
+    <%= form.label :location%><br>
     <%= form.text_field  :location %>
   </div>
 
-   <div>
-    <%= form.label :image %><br>
-    <%= form.text_field  :image %>
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
 
    <div>
@@ -39,6 +39,11 @@
     <div>
     <%= form.label :address %><br>
     <%= form.text_field :address  %>
+    </div>
+
+    <div>
+      <%= form.hidden_field :user_id %><br>
+      <%= form.hidden_field :user_id, value:current_user.id %>
     </div>
 
   <div>
