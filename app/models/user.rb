@@ -1,5 +1,9 @@
 class User < ApplicationRecord
 validates_uniqueness_of :role, :if => lambda {|user| user.role == 'admin' }
+has_many :products
+
+
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

@@ -9,6 +9,7 @@ class CreateProperties < ActiveRecord::Migration[7.0]
       t.string :image
       t.string :city
       t.string :address
+      t.integer :user_id,  foreign_key: true
       t.timestamps
     end
   end
