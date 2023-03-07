@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /properties or /properties.json
   def index
@@ -9,7 +10,15 @@ class PropertiesController < ApplicationController
   # GET /properties/1 or /properties/1.json
   def show
   end
+  def card
+   
 
+  end
+  def flat
+    @properties = Property.where(property_type: "Plot")
+  end 
+  def viewpage
+  end 
   # GET /properties/new
   def new
     @property = Property.new
