@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 validates_uniqueness_of :role, :if => lambda {|user| user.role == 'admin' }
-has_many :products
+has_many :properties
+has_many :carts
+has_many :properties, through: :carts
 
 
 

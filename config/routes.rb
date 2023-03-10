@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :buyers
+  resources :carts
   resources :properties
   #devise_for :users
   get 'welcome/index'
