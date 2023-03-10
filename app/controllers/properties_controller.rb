@@ -15,7 +15,7 @@ class PropertiesController < ApplicationController
 
   end
   def flat
-    @properties = Property.where(property_type: "Plot")
+    @flat = Property.flat
   end 
   def viewpage
   end 
@@ -31,6 +31,7 @@ class PropertiesController < ApplicationController
   # POST /properties or /properties.json
   def create
     @property = Property.new(property_params)
+  
 
     respond_to do |format|
       if @property.save

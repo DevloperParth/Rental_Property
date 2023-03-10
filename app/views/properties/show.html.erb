@@ -27,12 +27,14 @@
             </h5>
             <h5><strong>Mobile No</strong> <%= User.find(@property.user_id).mobile%></h5>
             <h5><strong>Mail</strong> <%= User.find(@property.user_id).email%></h5>
-
-        
-
+            <h5><strong>Mail</strong> <%=@property.id%></h5>
             
+    
+        <%= button_to "Buy",carts_path(user_id: current_user.id,property_id:@property.id) , method: :post ,class: "btn"%>
+
+
           
-            <a href="" class="btn">shop now</a>
+           
         </div>
         
     </div>

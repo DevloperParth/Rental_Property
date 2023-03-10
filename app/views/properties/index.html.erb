@@ -26,7 +26,7 @@
             <img src="/static/image/cat-1.png" alt="">
             <h3>Flat</h3>
             <p style="color: orangered;">upto 20% off</p>
-            <a href="" class="btn">shop now</a>
+            <a href="/properties/flat/action" class="btn">shop now</a>
         </div>
 
         <div class="box">
@@ -68,9 +68,10 @@
                         <span class="old-price">&#8377;<%=  property .price %></span>
                         <span class="new-price">&#8377;<%=  property .price %></span>
                     </div>
-                     <%= link_to "add to cart",properties_view_action_path(id:"123"), class: "btn"%>
+                     <%= link_to "Show Now",property, class: "btn"%>
+
                    
-                 
+
                 </div> 
                 <div>
                
