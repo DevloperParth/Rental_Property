@@ -1,0 +1,19 @@
+<h1>New buyer</h1>
+
+<%= render "form", buyer: @buyer %>
+
+<br>
+
+<div>
+  <%= link_to "Back to buyers", buyers_path %>
+  <%= form_with model: @buyer do |form| %>
+   <div>
+      <%= form.hidden_field :properties_id%><br>
+      <%= form.hidden_field :properties_id, value:@property.%>
+    </div>
+     <div>
+      <%= form.hidden_field :buy_id %><br>
+      <%= form.hidden_field :buy_id, value:@current_user.id %>
+    </div>
+    <% end %>
+</div>
