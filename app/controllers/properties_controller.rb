@@ -1,26 +1,54 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+ 
 
   # GET /properties or /properties.json
   def index
-    @properties = Property.all
+    @properties = Property.where(verfied: true)
   end
 
   # GET /properties/1 or /properties/1.json
   def show
   end
-  def card
-   
-
-  end
+  
+  def check_user
+	  if current_user.role =="buyer" || current_user.role =="admin"
+			return redirect_to properties_path
+		end
+	end
+  
   def flat
     @flat = Property.flat
   end 
-  def viewpage
+  def show_property
+    check_user
+    @properties=Property.where(user_id: current_user.id)
   end 
+
+  def destroy_property   
+    params["id"]=(params[:id]).to_i 
+    if params[:id]==nil 
+      redirect_to reproperties_view_action_path
+    else
+        @property=Property.find(params[:id])
+        if @property.destroy
+          @cart=Cart.where(property_id: params[:id])
+                if @cart==nil
+                   redirect_to properties_view_action_path
+                else
+                  @cart.destroy_all
+                  redirect_to properties_view_action_path
+                end
+        end
+    end 
+   
+  end 
+
+  
   # GET /properties/new
   def new
+  
     @property = Property.new
   end
 
@@ -28,11 +56,30 @@ class PropertiesController < ApplicationController
   def edit
   end
 
+  
+def property_verfied
+
+  if current_user.role =="admin"
+    @properties = Property.where(verfied: false)
+  else
+    return redirect_to properties_path
+  end
+end 
+
+def verfied
+  params["id"]=(params[:id]).to_i
+  @properties=Property.find(params[:id])
+  @properties.verfied=true
+  if @properties.save
+    render plain: "verfied"
+  end
+end 
+
+
   # POST /properties or /properties.json
   def create
-    @property = Property.new(property_params)
   
-
+    @property = Property.new(property_params)
     respond_to do |format|
       if @property.save
         format.html { redirect_to property_url(@property), notice: "Property was successfully created." }
