@@ -29,10 +29,10 @@
             <h5><strong>Mail</strong> <%= User.find(@property.user_id).email%></h5>
             <h5><strong>Mail</strong> <%=@property.id%></h5>
             
-    
-        <%= button_to "Buy",carts_path(user_id: current_user.id,property_id:@property.id) , method: :post ,class: "btn"%>
+        <% if current_user.role!="seller"%>
+        <%= button_to "ADD TO CARD",carts_path(user_id: current_user.id,property_id:@property.id) , method: :post ,class: "btn"%>
 
-
+        <%end%>
           
            
         </div>
