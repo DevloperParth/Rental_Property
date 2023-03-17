@@ -8,7 +8,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
 
   # POST /resource/confirmation
   def create
-    puts "hello message "
+    puts 'hello message '
     super
   end
 

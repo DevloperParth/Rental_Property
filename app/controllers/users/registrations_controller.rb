@@ -1,4 +1,4 @@
- #frozen_string_literal: true
+# frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
@@ -6,14 +6,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    puts "hello method call when bea a rester mail and there losta kjnhdjs,mn m"
+    puts 'hello method call when bea a rester mail and there losta kjnhdjs,mn m'
 
     super
   end
 
   # POST /resource
   def create
-    puts "hello method call when bea a rester mail and there losta kjnhdjs,mn m"
+    puts 'hello method call when bea a rester mail and there losta kjnhdjs,mn m'
     super
   end
 

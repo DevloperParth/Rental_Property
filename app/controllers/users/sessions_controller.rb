@@ -1,4 +1,4 @@
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
@@ -10,10 +10,10 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    puts "hello method call when bea a rester mail and there losta kjnhdjs,mn m"
+    puts 'hello method call when bea a rester mail and there losta kjnhdjs,mn m'
 
     super
-    #puts "hello method call when bea a rester mail and there losta kjnhdjs,mn m"
+    # puts "hello method call when bea a rester mail and there losta kjnhdjs,mn m"
   end
 
   # DELETE /resource/sign_out
