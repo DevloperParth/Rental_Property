@@ -16,14 +16,12 @@
                 <h2 class="brand-name text-white">Magic Bricks</h2>
               </div>
               <div class="col-md-5 my-auto">
-                <form role="search">
-                  <div class="input-group">
-                    <input type="search" placeholder="Search property" class="form-control" />
-                    <button class="btn bg-white" type="submit">
-                      <i class="fa fa-search"></i>
-                    </button>
-                  </div>
-                </form>
+                <%= form_tag("/properties/search/action", :method=>"get") do %>
+                  <%= search_field_tag :search, params[:search], placeholder: "Search", class:"searchbar-clear" %>
+                  <%= button_tag "search",:name =>nil%>
+                <%end%>
+                <!--Search form-->
+                <!---->
               </div>
               <div class="col-md-5 my-auto">
                 <ul class="nav justify-content-end">
