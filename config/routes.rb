@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :properties
   #devise_for :users
-  #root 'welcome#index'
+
   root 'properties#index'
 
    devise_for :users, controllers: {  
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/properties/property_verfied/action',to: "properties#property_verfied"
   get '/properties/verfied/action',to: "properties#verfied"
   get '/properties/destroy_property/action',to: "properties#destroy_property"
+  get '/properties/search/action',to: "properties#search"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

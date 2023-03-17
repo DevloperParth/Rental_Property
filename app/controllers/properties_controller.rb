@@ -10,7 +10,12 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1 or /properties/1.json
   def show
+
   end
+
+  def search
+    @properties=((Property.where(property_type: params[:search]).or(Property.where(city: params[:search]))).and (Property.where(verfied: true)) )
+  end 
   
   def check_user
 	  if current_user.role =="buyer" || current_user.role =="admin"
@@ -21,6 +26,7 @@ class PropertiesController < ApplicationController
   def flat
     @flat = Property.flat
   end 
+
   def show_property
     check_user
     @properties=Property.where(user_id: current_user.id)
@@ -33,7 +39,7 @@ class PropertiesController < ApplicationController
     else
         @property=Property.find(params[:id])
         if @property.destroy
-          @cart=Cart.where(property_id: params[:id])
+            @cart=Cart.where(property_id: params[:id])
                 if @cart==nil
                    redirect_to properties_view_action_path
                 else

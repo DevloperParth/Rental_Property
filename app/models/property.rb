@@ -3,15 +3,10 @@ class Property < ApplicationRecord
 	belongs_to :user
   has_many :carts
   has_many :properties, through: :carts
-	#scope:  flat -> where{ property_type: "Plot"}
- #if flate 
-#	Property.flate
- #elsif RentalProperty
-	#protected
-	# byebug
-	# before_initialize :find_flat 
+	validates :price, presence: true
+	validates :property_type ,presence: true
+	validates :city ,presence: true
+	validates :address ,presence: true  
 
-	# def find_flat 
-	# 	@properties = Property.where(property_type: "Plot")
-	# end
+
 end
